@@ -18,19 +18,10 @@ class User < ActiveRecord::Base
             :uniqueness => {:case_sensitive => false}
 
   def self.by_karma(page)
-    User.benchmark("karmaing") do
       users = User.find(:all, :order => "karma DESC", :limit => 50, :offset => (page.to_i * 50))
-      # users = User.all.order("karma")
-      # users[0..49]
-    end
   end
 
   def full_name
     "#{first_name} #{last_name}"
   end
-
-  # User.benchmark("karmaing") do
-  #   self.by_karma
-  # end
-
 end

@@ -14,13 +14,4 @@ describe KarmaPoint do
     it { should_not allow_value(-1).for(:value) }
   end
 
-  describe '#save' do
-    let(:user) { create(:user) }
-
-    it "increments the user's total_karma by the value of the karma point" do
-      expect {
-        create(:karma_point, :user => user, :value => 10)
-      }.to change(user, :total_karma).by(10)
-    end
-  end
 end

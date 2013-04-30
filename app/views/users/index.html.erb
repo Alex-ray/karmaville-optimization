@@ -9,4 +9,27 @@
   <% @users.each do |user| %>
     <%= render 'user_row', :user => user %>
   <% end %>
+  <div class="pagination">
+    <ul>
+      <% if current_page > 1 %>
+      <li><a href="/?page=<%= current_page - 1 %>">PREVIOUS PAGE</a></li>
+      <% end %>
+      <% if current_page > 2 %>
+      <li><a href="/?page=<%= current_page - 2 %>"><%= current_page - 2 %></a></li>
+      <% end %>
+      <% if current_page > 1 %>
+      <li><a href="/?page=<%= current_page - 1 %>"><%= current_page - 1 %></a></li>
+      <% end %>
+      <li class="disabled"><a href="#"><%= current_page %></a></li>
+      <% if current_page < 1999 %>
+      <li><a href="/?page=<%= current_page + 1 %>"><%= current_page + 1 %></a></li>
+      <% end %>
+      <% if current_page < 1998 %>
+      <li><a href="/?page=<%= current_page + 2 %>"><%= current_page + 2 %></a></li>
+      <% end %>
+      <% if current_page < 1999 %>
+      <li><a href="/?page=<%= current_page + 1 %>">NEXT PAGE</a></li>
+      <% end %>
+    </ul>
+  </div>
 </table>
