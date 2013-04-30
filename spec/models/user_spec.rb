@@ -30,11 +30,11 @@ describe User do
     end
   end
 
-  describe '#total_karma' do
+  describe '#karma' do
     let(:user) { create(:user_with_karma, :total => 500, :points => 2) }
 
     it 'returns the total karma for the user' do
-      user.total_karma.should eq 500
+      user.karma.should eq 500
     end
   end
 
